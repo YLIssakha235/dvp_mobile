@@ -20,3 +20,17 @@ rad.json
 *.flf
 #Test results file
 TestResults.xml
+
+# Node / JS
+**/node_modules/
+**/.expo/
+**/.next/
+**/dist/
+**/build/
+**/.turbo/
+**/.cache/
+**/*.log
+
+# Env
+**/.env
+**/.env.*

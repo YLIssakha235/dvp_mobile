@@ -1,0 +1,28 @@
+enum AssetType {
+  IMAGE
+  VIDEO
+  OTHER
+}
+
+model Asset {
+  id         String         @id @default(cuid())
+  type       AssetType @default(IMAGE)
+  url        String
+  filename   String?
+  mimeType   String?
+  sizeBytes Int?
+
+  incidentId String
+  incident   Incident       @relation(fields: [incidentId], references: [id], onDelete: Cascade)
+
+  createdById String?
+  createdBy   User?         @relation(fields: [createdById], references: [id], onDelete: SetNull)
+
+  createdAt  DateTime       @default(now())
+
+  @@index([incidentId])
+  @@map("asset")
+}
+
+
+
